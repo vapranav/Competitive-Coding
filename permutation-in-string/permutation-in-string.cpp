@@ -1,8 +1,9 @@
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
-        if(s1.length() > s2.length())
-            return false;
+       if(s1.length() > s2.length())
+           return false;
+        
         vector<int> s1map(26, 0);
         vector<int> s2map(26, 0);
         
@@ -21,11 +22,11 @@ public:
         }
         
         return permutation(s1map, s2map);
-    }
+    }   
     
-    bool permutation(vector<int> s1, vector<int> s2) {
+    bool permutation(vector<int> s1map, vector<int> s2map) {
         for(int i = 0; i<26; i++) {
-            if(s1[i] != s2[i])
+            if(s1map[i] != s2map[i])
                 return false;
         }
         return true;
